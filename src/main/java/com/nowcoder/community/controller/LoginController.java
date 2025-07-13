@@ -104,7 +104,7 @@ public class LoginController {
             return "/site/login";
         }
         int expiredSeconds = rememberme?REMEMBER_EXPIRED_SECONDS:DEFAULT_EXPIRED_SECONDS;
-        System.out.println(expiredSeconds);
+        //System.out.println(expiredSeconds);
         Map<String, Object> map = userService.login(username, password, expiredSeconds);
         if(map.containsKey("ticket")){
             Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
