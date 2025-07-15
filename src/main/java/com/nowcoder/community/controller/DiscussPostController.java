@@ -96,6 +96,4 @@ public class DiscussPostController {
         model.addAttribute("comments", commentVoList);
         return "/site/discuss-detail";
     }
-
-
 }
