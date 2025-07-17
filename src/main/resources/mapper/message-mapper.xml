@@ -59,4 +59,15 @@
             AND conversation_id = #{conversationId}
         </if>
     </select>
+    <insert id="insertMessage" parameterType="Message" keyProperty="id">
+        INSERT INTO message(<include refid="insertFields"/>)
+        VALUES(#{fromId}, #{toId}, #{conversationId}, #{content}, #{status}, #{createTime})
+    </insert>
+    <update id="updateStatus">
+        UPDATE message SET status = #{status}
+        WHERE id IN
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </update>
 </mapper>
