@@ -102,7 +102,7 @@ public class MessageController {
     @RequestMapping(path = "/letter/send", method = RequestMethod.POST)
     @ResponseBody
     public String sendLetter(Model model, String toName, String content) {
-        int a=1/0;
+        //int a=1/0;
         User target = userService.findUserByName(toName);
         if (target == null) {
             return CommunityUtil.getJSONString(1, "目标用户不存在！");
