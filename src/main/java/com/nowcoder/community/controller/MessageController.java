@@ -40,6 +40,8 @@ public class MessageController {
         if (conversationList != null) {
             for (Message message : conversationList) {
                 Map<String, Object> map = new HashMap<>();
+                //fromuserid
+                map.put("fromUserId", message.getFromId());
                 map.put("conversation", message);
                 map.put("letterCount", messageService.findLetterCount(message.getConversationId()));
                 map.put("unreadCount", messageService.findLetterUnreadCount(user.getId(), message.getConversationId()));
